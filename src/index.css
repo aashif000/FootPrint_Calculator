@@ -1,0 +1,154 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 150 100% 40%;
+    --secondary-foreground: 220 0% 100%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.75rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  /* Glass effect */
+  .glass-panel {
+    @apply backdrop-blur-lg bg-white/40 dark:bg-black/40 border border-white/10;
+  }
+  
+  /* Transitions */
+  .page-transition-enter {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0);
+  }
+  
+  .page-transition-enter-active {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    transition: opacity 400ms, transform 400ms;
+  }
+  
+  .page-transition-exit {
+    opacity: 1;
+  }
+  
+  .page-transition-exit-active {
+    opacity: 0;
+    transition: opacity 300ms;
+  }
+  
+  /* Smooth scroll */
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .eco-container {
+    @apply container max-w-6xl px-4 mx-auto;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-semibold tracking-tight mb-4;
+  }
+  
+  .section-subtitle {
+    @apply text-lg text-muted-foreground max-w-2xl mb-10;
+  }
+  
+  .card-glass {
+    @apply rounded-2xl glass-panel p-6 transition-all duration-300 hover:shadow-lg;
+  }
+  
+  /* Animation delays */
+  .animation-delay-100 {
+    animation-delay: 100ms;
+  }
+  
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+  
+  .animation-delay-300 {
+    animation-delay: 300ms;
+  }
+  
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+  
+  .animation-delay-500 {
+    animation-delay: 500ms;
+  }
+  
+  /* Eco-footprint calculator specific styles */
+  .eco-tab-content {
+    @apply animate-fade-in;
+  }
+  
+  .eco-card {
+    @apply bg-white rounded-lg border p-6 h-full shadow-sm transition-all hover:shadow;
+  }
+  
+  .eco-input-group {
+    @apply space-y-2;
+  }
+  
+  .eco-input-label {
+    @apply flex items-center space-x-2 text-sm font-medium;
+  }
+  
+  .eco-value-display {
+    @apply text-3xl font-bold;
+  }
+  
+  .eco-value-unit {
+    @apply text-base font-normal ml-1;
+  }
+  
+  .eco-info-text {
+    @apply text-sm text-muted-foreground flex items-start;
+  }
+  
+  .eco-info-icon {
+    @apply h-4 w-4 text-muted-foreground mt-0.5 mr-2 flex-shrink-0;
+  }
+  
+  .eco-footprint-summary {
+    @apply bg-muted p-4 rounded-md space-y-2;
+  }
+}
