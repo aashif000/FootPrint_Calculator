@@ -1,4 +1,34 @@
+import React, { useContext, useEffect } from "react";
+import { toast } from "sonner";
+import { ApiKeyContext } from "@/App";
 
+const APIKeyInput: React.FC = () => {
+  const { setApiKey } = useContext(ApiKeyContext);
+
+  useEffect(() => {
+    // Use the API key from environment variables
+    const apiKey = process.env.REACT_APP_API_KEY;
+    if (apiKey) {
+      setApiKey(apiKey);
+      toast.success("API key set for this session");
+    } else {
+      toast.error("API key is not set");
+    }
+  }, [setApiKey]);
+
+  return (
+    <div className="card-glass">
+      <h3 className="text-lg font-semibold mb-4">Google Gemini API Key</h3>
+      <p className="text-sm text-muted-foreground mb-6">
+        The API key is set automatically for this session.
+      </p>
+    </div>
+  );
+};
+
+export default APIKeyInput;
+
+/*
 import React, { useContext, useState } from "react";
 import { toast } from "sonner";
 import { Eye, EyeOff } from "lucide-react";
@@ -72,6 +102,7 @@ const APIKeyInput: React.FC = () => {
       </form>
     </div>
   );
+  */
 };
 
 export default APIKeyInput;
