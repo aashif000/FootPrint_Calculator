@@ -26,8 +26,6 @@ const APIKeyInput: React.FC = () => {
   );
 };
 
-export default APIKeyInput;
-
 /*
 import React, { useContext, useState } from "react";
 import { toast } from "sonner";
